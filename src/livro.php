@@ -21,7 +21,7 @@ class Livro {
     public function verificarTitulo(){
         
         if (mb_strlen($this->titulo) <= 3){ 
-           echo "<p style='color:red;'> Título não pode ter menos do que 3 letras </p>";
+           echo "<p style='color:red;'> ⚠️Título não pode ter menos do que 3 letras </p>";
         } else{
             echo "<p> Título do Livro é: {$this -> titulo} </p>";
         }

@@ -21,28 +21,26 @@
     
     <div class="livros">
         <?=$livroA->mostrarDados()?>
+        <h3>Verificação do Título de Livro A:</h3>
+        <?=$livroA->verificarTitulo()?>
     </div>
     <div class="livros">
         <?=$livroB->mostrarDados()?>
+        <h3>Verificação do Título de Livro B:</h3>
+        <?=$livroB->verificarTitulo()?>
     </div>
+
     <div class="livros">
         <?=$livroC->mostrarDados()?>
+         <h3>Verificação do Título de Livro C:</h3>
+        <?=$livroC->verificarTitulo()?>
     </div>
     <div class="livros">
         <?=$livroD->mostrarDados()?>
+        <h3>Verificação do Título de Livro D:</h3>
+        <?=$livroD->verificarTitulo()?>
     </div>
 
-    <h3>Verificação do Título de Livro A:</h3>
-    <?=$livroA->verificarTitulo()?>
-
-    <h3>Verificação do Título de Livro B:</h3>
-    <?=$livroB->verificarTitulo()?>
-
-    <h3>Verificação do Título de Livro C:</h3>
-    <?=$livroC->verificarTitulo()?>
-
-    <h3>Verificação do Título de Livro D:</h3>
-    <?=$livroD->verificarTitulo()?>
-    
+      
 </body>
 </html>
