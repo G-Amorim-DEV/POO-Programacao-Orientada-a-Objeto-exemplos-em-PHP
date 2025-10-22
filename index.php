@@ -23,12 +23,14 @@ $clienteC = new Cliente("Joãozinho", 40, "joaozinho@gmail.com");
     <h2>Trabalhando com classes e objetos</h2>
 
     <h1>Visualizando  estrutura dos objetos</h1>
-    <pre><?=var_dump($clienteA, $clienteB, $clienteC)?></pre>
 
-    <h3>Acessando/lendo os dados dos objetos</h3>
-    <?=$clienteA->mostrarDados()?>
-    <?=$clienteB->mostrarDados()?>
-    <?=$clienteC->mostrarDados()?>
+   <div>
+    <h2>Nome: <?=$clienteA->getNome()?></h2>
+    <h2>Idade: <?=$clienteA->getIdade()?></h2>
+    <h2>E-mail: <?=$clienteA->getEmail()?></h2>
+   </div>
+
+ 
     
 </body>
 </html>
