@@ -1,0 +1,136 @@
+/*
+|--------------------------------------------------------------------------
+| Variáveis CSS (Cores e Fontes)
+|--------------------------------------------------------------------------
+
+*/
+:root {
+    /* Cores Principais */
+    --cor-primaria: #0056b3; /* Azul para cabeçalhos e bordas */
+    --cor-secundaria: #c0392b; /* Vermelho/Marrom para destaque do título do livro */
+    --cor-fundo-claro: #f4f4f9; /* Fundo geral */
+    --cor-fundo-caixa: #ffffff; /* Fundo das caixas de livro */
+    --cor-texto-principal: #333;
+    --cor-texto-secundario: #555;
+    --cor-texto-forte: #2c3e50;
+
+    /* Cores de Feedback/Verificação */
+    --cor-sucesso: #27ae60; /* Verde */
+    --cor-fundo-sucesso: #e8f8f5;
+    --cor-borda-sucesso: #2ecc71;
+
+    /* Espaçamentos e Sombras */
+    --sombra-padrao: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --sombra-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Estilos Gerais e Tipografia
+|--------------------------------------------------------------------------
+*/
+body {
+    font-family: 'Arial', sans-serif; /* Usando aspas para consistência */
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-texto-principal);
+    line-height: 1.6;
+    margin: 0; /* Boas práticas: remover margem padrão */
+    padding: 20px;
+    box-sizing: border-box; /* Garante que padding e border não afetem o tamanho total */
+    min-height: 100vh; /* Para que o fundo ocupe a altura total */
+}
+
+h3 {
+    color: var(--cor-primaria);
+    border-bottom: 2px solid var(--cor-primaria);
+    padding-bottom: 5px;
+    margin-top: 30px;
+    margin-bottom: 15px; /* Adicionado um margin-bottom para melhor espaçamento */
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Estilo para as Caixas de Livros (.livros)
+|--------------------------------------------------------------------------
+*/
+.livros {
+    background-color: var(--cor-fundo-caixa);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: var(--sombra-padrao);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Adicionado 'ease-in-out' para suavizar */
+}
+
+.livros:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-hover);
+    cursor: pointer; /* Indica que o elemento é interativo, melhorando a UX */
+}
+
+/*
+|--------------------------------------------------------------------------
+| Estilos Internos ao Conteúdo dos Livros
+|--------------------------------------------------------------------------
+*/
+.livros h3 {
+    color: var(--cor-secundaria); /* Título do livro em destaque */
+    font-size: 1.4em; /* Levemente maior */
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-bottom: none; /* Garante que a borda do H3 geral não se aplique aqui */
+}
+
+.livros p {
+    margin: 5px 0;
+    color: var(--cor-texto-secundario);
+    font-size: 0.95em; /* Levemente menor para contraste com o título */
+}
+
+.livros p strong {
+    color: var(--cor-texto-forte);
+    font-weight: 600; /* Pode ser mais adequado que 'bold' se estiver usando uma fonte com mais pesos */
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Estilo para a Verificação do Título (body > p)
+|--------------------------------------------------------------------------
+*/
+body > p {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--cor-sucesso);
+    background-color: var(--cor-fundo-sucesso);
+    padding: 10px 15px; /* Ajuste sutil no padding */
+    border: 1px solid var(--cor-borda-sucesso);
+    border-radius: 5px;
+    display: inline-block;
+    margin: 5px 0 20px 0; /* Adiciona espaçamento vertical consistente */
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Responsividade Básica
+|--------------------------------------------------------------------------
+*/
+@media (max-width: 600px) {
+    body {
+        padding: 15px; /* Ajuste para evitar padding muito pequeno */
+    }
+
+    .livros {
+        padding: 15px; /* Mantido em 15px para consistência, se não precisar de mais redução */
+        margin-bottom: 15px; /* Leve redução */
+    }
+
+    h3 {
+        margin-top: 20px;
+        font-size: 1.2em; /* Redução para telas menores */
+    }
+}
