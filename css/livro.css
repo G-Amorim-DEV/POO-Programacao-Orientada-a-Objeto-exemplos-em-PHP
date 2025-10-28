@@ -1,170 +1,70 @@
-/*
-|--------------------------------------------------------------------------
-| Variáveis CSS (Cores e Fontes)
-|--------------------------------------------------------------------------
-| Uso de variáveis para facilitar a manutenção e garantir consistência.
-| Cores escolhidas para um visual suave e leitura confortável.
-*/
-:root {
-    /* Cores de Fundo e Base - Remetem a papel e tinta */
-    --cor-fundo-claro: #fcfcfc; /* Papel quase branco */
-    --cor-fundo-livro: #ffffff;
-    --cor-texto-principal: #1c1c1c; /* Tinta preta suave */
-    --cor-texto-secundario: #5c5c5c;
-
-    /* Cores de Destaque - Clássico/Sóbrio */
-    --cor-primaria: #136f8b; /* Marrom-Sépia para cabeçalhos e bordas (Remete a capa) */
-    --cor-secundaria: #008080; /* Teal/Verde Marinho para título de livro (Destaque sóbrio) */
-
-    /* Cores de Feedback */
-    --cor-sucesso: #28a745; /* Verde escuro para boa legibilidade */
-    --cor-erro: #dc3545; /* Vermelho padrão para erro */
-    --cor-fundo-sucesso: #e6f5ea;
-    --cor-fundo-erro: #f8e8e8;
-
-    /* Espaçamentos e Sombras */
-    --sombra-padrao: 0 1px 3px rgba(0, 0, 0, 0.08); /* Sombra mais sutil */
-    --sombra-hover: 0 4px 10px rgba(0, 0, 0, 0.12);
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| Estilos Gerais e Tipografia (Foco na Leitura)
-|--------------------------------------------------------------------------
-*/
-body {
-    font-family: 'Georgia', serif; /* Fonte serifada para melhor legibilidade em textos longos */
-    background-color: var(--cor-fundo-claro);
-    color: var(--cor-texto-principal);
-    line-height: 1.5; /* Ajustado para 1.5 para maior conforto de leitura */
+/* ===========================
+   Reset básico
+   =========================== */
+* {
     margin: 0;
-    padding: 30px; /* Padding maior em telas grandes */
+    padding: 0;
     box-sizing: border-box;
-    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
 }
 
-/* Títulos de Seção (Verificação) */
-h3 {
-    color: var(--cor-primaria);
-    border-bottom: 2px solid var(--cor-primaria);
-    padding-bottom: 5px;
-    margin-top: 35px;
-    margin-bottom: 20px;
+/* ===========================
+   Corpo da página
+   =========================== */
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 20px;
 }
 
-
-/*
-|--------------------------------------------------------------------------
-| Estilo para as Caixas de Livros (.livros)
-|--------------------------------------------------------------------------
-| Remete a uma "página" ou "ficha de livro".
-*/
+/* ===========================
+   Container de livros
+   =========================== */
 .livros {
-    background-color: var(--cor-fundo-livro);
-    border: 1px solid #e0e0e0; /* Borda bem clara */
-    border-left: 5px solid var(--cor-secundaria); /* Destaque lateral (como uma lombada) */
-    border-radius: 4px; /* Borda mais sutil */
-    padding: 20px; /* Padding maior */
-    margin-bottom: 25px;
-    box-shadow: var(--sombra-padrao);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
+/* efeito hover nos cards */
 .livros:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--sombra-hover);
-    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-/*
-|--------------------------------------------------------------------------
-| Estilos Internos ao Conteúdo dos Livros (Baseado no HTML gerado pelo PHP)
-|--------------------------------------------------------------------------
-| O método mostrarDados() retorna H4 e P/B.
-*/
-
-/* Título do Livro (<h4>) */
-.livros h4 { /* Alterado de h3 para h4, conforme o PHP gerado */
-    color: var(--cor-secundaria);
-    font-size: 1.5em;
-    margin-top: 0;
-    margin-bottom: 12px;
-    font-weight: bold;
-    border-bottom: 1px dashed #e0e0e0; /* Linha de separação sutil */
-    padding-bottom: 5px;
-}
-
-/* Parágrafos de Dados */
-.livros p {
-    margin: 8px 0;
-    color: var(--cor-texto-secundario);
-    font-size: 1em;
-}
-
-/* Destaque (Título, Autor, Páginas) */
-.livros p b { /* Alterado de strong para b, conforme o PHP gerado */
-    color: var(--cor-texto-principal);
-    font-weight: 700;
-}
-
-/* Estilo para o Título de Verificação dentro da caixa */
+/* ===========================
+   Títulos dos livros
+   =========================== */
 .livros h3 {
-    color: var(--cor-primaria);
-    font-size: 1.1em;
-    margin-top: 25px;
+    font-size: 1.5rem;
+    color: #1a1a1a;
     margin-bottom: 10px;
-    border-bottom: none; /* Remove a borda do H3 geral */
-    padding-bottom: 0;
 }
 
+/* ===========================
+   Detalhes do livro
+   =========================== */
+.livros p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
 
-/*
-|--------------------------------------------------------------------------
-| Estilo para a Verificação do Título (Feedback)
-|--------------------------------------------------------------------------
-| Aplicado ao <p> que é gerado pelos métodos verificarTitulo()
-*/
-.livros p:last-of-type { /* Alvo: O último <p> dentro de .livros, que é o feedback */
-    font-size: 1em;
+/* destaque do título dentro do card */
+.livros b {
+    color: #555;
+}
+
+/* ===========================
+   Título do livro (fora do h3)
+   =========================== */
+.livros::after {
+    content: attr(data-titulo); /* Este é o seletor que depende do index_livro.php */
+    display: block;
+    margin-top: 10px;
+    font-size: 1.2rem;
     font-weight: 600;
-    padding: 8px 12px;
-    border-radius: 4px;
-    display: inline-block; /* Para o fundo não ocupar a largura total */
-}
-
-/* Feedback de SUCESSO (Título OK) */
-.livros p:last-of-type:not([style*="color:red"]) {
-    color: var(--cor-sucesso);
-    background-color: var(--cor-fundo-sucesso);
-    border: 1px solid var(--cor-sucesso);
-}
-
-/* Feedback de ERRO (Título <= 3) */
-.livros p[style*="color:red"] {
-    color: var(--cor-erro) !important; /* Sobrescreve o estilo inline do PHP */
-    background-color: var(--cor-fundo-erro);
-    border: 1px solid var(--cor-erro);
-}
-
-
-/*
-|--------------------------------------------------------------------------
-| Responsividade
-|--------------------------------------------------------------------------
-*/
-@media (max-width: 768px) {
-    body {
-        padding: 20px 15px;
-    }
-
-    .livros {
-        padding: 15px;
-        border-left-width: 3px;
-        margin-bottom: 20px;
-    }
-
-    .livros h4 {
-        font-size: 1.3em;
-    }
+    color: #0077cc;
 }
